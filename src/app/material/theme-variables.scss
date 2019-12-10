@@ -1,0 +1,18 @@
+@mixin theme-variables-loader($theme) {
+  .material-theme-variables {
+    /////////////////////////////////////////////////
+    // SCSS VARS
+    /////////////////////////////////////////////////
+    $primary: mat-color(map-get($theme, primary));
+    $accent: mat-color(map-get($theme, accent));
+    $warn: mat-color(map-get($theme, warn));
+
+    /////////////////////////////////////////////////
+    // CSS VARS
+    /////////////////////////////////////////////////
+    --primary-color: #{$primary};
+    --accent-color: #{$accent};
+    --warn-color: #{$warn};
+  }
+}
+
