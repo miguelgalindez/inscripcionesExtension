@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between">
+      <div fxLayout="row" fxLayoutAlign="center stretch" fxLayoutGap="3%" class="brand">
+          <a href="https://www.unicauca.edu.co" target="_blank">
+            <img src="assets/images/logo.png" class="logo" alt="Logo de la Universidad del Cauca">
+          </a>
+          <mat-divider class="divider" vertical></mat-divider>
+          <a [routerLink]="['']" fxFlex>
+            <div class="titulo align-self-center">Sistema de inscripciones a programas de extensión</div>
+          </a>
+      </div>
+      <div id="toolbar-links" fxLayout="row" fxFlexAlign="center stretch">
+        <app-toolbar-link [path]="'/crearCuenta'" [text]="'Crear cuenta'" [currentPath]="currentUrl"></app-toolbar-link>
+        <app-toolbar-link [path]="'/iniciarSesion'" [text]="'Iniciar sesión'" [currentPath]="currentUrl"></app-toolbar-link>
+        <app-toolbar-link [path]="'/recuperarContrasena'" [text]="'Recuperar contraseña'" [currentPath]="currentUrl"></app-toolbar-link>
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>
