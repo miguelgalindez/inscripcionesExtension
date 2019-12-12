@@ -1,4 +1,8 @@
-<div class="container">
-  <app-header [currentUrl]="router.url" ></app-header>
-  <router-outlet></router-outlet>
+<div class="background">
+  <div fxLayout="column" fxLayoutGap="20px">
+    <app-header [currentPath]="router.url" ></app-header>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

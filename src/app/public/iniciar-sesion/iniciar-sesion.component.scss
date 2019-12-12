@@ -1,0 +1,50 @@
+.card-size-xs {
+  width: 80%;
+  margin: auto;
+}
+
+.card-size-gt-xs {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 440px;
+}
+
+.mat-title, .mat-subheading-2 {
+  font-weight: bolder;
+  color: var(--primary-color);
+}
+
+.mat-card {
+  padding: 20px;
+}
+
+mat-card-header{
+  justify-content: center;
+}
+
+button{
+  font-weight: bolder;
+  font-size: 16px;
+  padding: 5px;
+  margin-top: 25px;
+}
+
+:host ::ng-deep mat-form-field.no-padding > .mat-form-field-wrapper{
+  padding-bottom: 0;
+}
+
+a{
+  font-size: 14px;
+  font-weight: bolder;
+  color: var(--primary-color);
+  text-decoration-line: none;
+}
+
+.forgotten-password {
+  align-self: flex-end;
+}
+
+.create-account-text {
+  text-align: center;
+}

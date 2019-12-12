@@ -1,1 +1,38 @@
-<p>iniciar-sesion works!</p>
+<div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="20px" class="{{ getCardClass() }}">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+          <div class="mat-title">Iniciar sesión</div>
+      </mat-card-title>
+
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutGap="0px">
+      <mat-form-field appearance="outline" class="no-padding" >
+        <mat-label>Identificación</mat-label>
+        <input matInput>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="no-padding">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password">
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+
+      <a [routerLink]="['/recuperarContrasena']" class="forgotten-password" color="primary">
+        ¿Olvidaste tu contraseña?
+      </a>
+
+      <button mat-raised-button fxFill color="primary">Ingresar</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+        <p class="create-account-text">
+          ¿Eres nuevo?
+          <a [routerLink]="['/crearCuenta']">Crea una cuenta</a>
+        </p>
+    </mat-card-content>
+  </mat-card>
+</div>

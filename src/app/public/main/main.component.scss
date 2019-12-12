@@ -1,0 +1,18 @@
+.mat-title, .mat-subheading-2 {
+  font-weight: bolder;
+  color: var(--accent-color);
+}
+
+.mat-subheading-2{
+  margin-top: 40px;
+}
+
+.mat-body {
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+img {
+  max-width:75%; align-self: center;
+}

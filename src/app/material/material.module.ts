@@ -1,8 +1,25 @@
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatCardModule,  MatDividerModule, MatButtonModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatCardModule,
+  MatDividerModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+} from '@angular/material';
 import { FlexModule } from '@angular/flex-layout';
 
-const modules = [MatToolbarModule, MatCardModule, MatDividerModule, MatButtonModule, FlexModule];
+const modules = [
+  FlexModule,
+  MatToolbarModule,
+  MatCardModule,
+  MatDividerModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule
+];
 
 @NgModule({
   declarations: [],

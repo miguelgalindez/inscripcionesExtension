@@ -1,3 +1,4 @@
+import { MaterialModule } from './material/material.module';
 import { HomeModule } from './home/home.module';
 import {
   PublicModule,
@@ -27,7 +28,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     PublicModule,
-    HomeModule
+    HomeModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
