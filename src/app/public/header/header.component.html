@@ -1,15 +1,16 @@
 <mat-toolbar color="primary" class="toolbar">
-    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between" [hidden]="mediaScreenService.screen_is_xs | async">
       <div fxLayout="row" fxLayoutAlign="center stretch" fxLayoutGap="3%" class="brand">
-          <a href="https://www.unicauca.edu.co" target="_blank">
+          <a [routerLink]="['']">
             <img src="assets/images/logo.png" class="logo" alt="Logo de la Universidad del Cauca">
           </a>
+
           <mat-divider class="divider" vertical></mat-divider>
-          <a [routerLink]="['']" fxFlex>
-            <div class="titulo align-self-center">Sistema de inscripciones a programas de extensión</div>
+          <a [routerLink]="['']" fxFlex class="titulo">
+            <div>Sistema de inscripciones a programas de extensión</div>
           </a>
       </div>
-      <div id="toolbar-links" fxLayout="row" fxFlexAlign="center stretch">
+      <div fxLayout="row" fxFlexAlign="center stretch">
         <app-toolbar-link [path]="'/crearCuenta'" [text]="'Crear cuenta'" [currentPath]="currentPath"></app-toolbar-link>
         <app-toolbar-link [path]="'/iniciarSesion'" [text]="'Iniciar sesión'" [currentPath]="currentPath"></app-toolbar-link>
         <app-toolbar-link [path]="'/recuperarContrasena'" [text]="'Recuperar contraseña'" [currentPath]="currentPath"></app-toolbar-link>

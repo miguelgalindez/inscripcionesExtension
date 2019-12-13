@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { MediaScreenService } from './../../services/media-screen.service';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() currentPath: string;
-  constructor() { }
+  currentPath: string;
 
-  ngOnInit() {
-  }
+  constructor(
+    public router: Router,
+    public mediaScreenService: MediaScreenService
+  ) {}
 
+  ngOnInit() {}
 }

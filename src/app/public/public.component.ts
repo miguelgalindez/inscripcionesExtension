@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-public',
@@ -7,10 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./public.component.scss']
 })
 export class PublicComponent implements OnInit {
+  constructor() {}
 
-  constructor(public router: Router) { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

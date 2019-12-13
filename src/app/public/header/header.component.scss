@@ -36,7 +36,19 @@
   text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
 }
 
+@media(max-width: 800px){
+  .titulo {
+    font-size: 14px;
+    width: 190px;
+  }
+}
 
-.align-self-center {
-  align-self: center;
+@media(max-width: 750px){
+  .titulo {
+    display: none !important;
+  }
+
+  .divider{
+    display: none !important;
+  }
 }

@@ -1,7 +1,11 @@
+import { MediaScreenService } from './../../services/media-screen.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MediaObserver, MediaChange } from '@angular/flex-layout';
-import { Subscription } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { unsupported } from '@angular/compiler/src/render3/view/util';
+
+const componentUrl = '/iniciarSesion';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -9,21 +13,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./iniciar-sesion.component.scss']
 })
 export class IniciarSesionComponent implements OnInit, OnDestroy {
-  mediaObserverSubscription: Subscription;
-  currentBreakpoint: string;
-  constructor(mediaObserver: MediaObserver, private router: Router) {
-    this.mediaObserverSubscription = mediaObserver
-      .asObservable()
-      .subscribe((events: MediaChange[]) => {
-        this.currentBreakpoint = events[0].mqAlias;
-        console.log(this.currentBreakpoint);
+  private unSubscribe: Subject<void>;
+  screenSize: string;
+
+  constructor(
+    private router: Router,
+    public mediaScreenService: MediaScreenService
+  ) {}
+
+  ngOnInit() {
+    this.unSubscribe = new Subject<void>();
+    this.mediaScreenService.screenSize
+      .pipe(takeUntil(this.unSubscribe))
+      .subscribe((screenSize: string) => {
+        this.screenSize = screenSize;
       });
   }
 
   getCardClass(): string {
-    console.log(`this.currentBreakpoint ${this.currentBreakpoint}`);
-    if (this.currentBreakpoint && this.router.url === '/iniciarSesion') {
-      if (this.currentBreakpoint === 'xs') {
+    if (this.screenSize && this.router.url === componentUrl) {
+      if (this.screenSize === 'xs') {
         return 'card-size-xs';
       } else {
         return 'card-size-gt-xs';
@@ -32,9 +41,8 @@ export class IniciarSesionComponent implements OnInit, OnDestroy {
     return null;
   }
 
-  ngOnInit() {}
-
   ngOnDestroy() {
-    this.mediaObserverSubscription.unsubscribe();
+    this.unSubscribe.next();
+    this.unSubscribe.complete();
   }
 }

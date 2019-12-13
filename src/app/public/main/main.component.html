@@ -1,5 +1,5 @@
-<div fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="center start" fxLayoutGap.gt-sm="5%">
-  <mat-card fxFlex.gt-sm="50%">
+<div fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap.sm="3%" fxLayoutGap.gt-sm="5%">
+  <mat-card fxFlex.lt-sm="90%" fxFlex.sm="50%" fxFlex.gt-sm="50%">
     <mat-card-header>
       <mat-card-title>
         <div class="mat-title">Sistema de inscripciones a programas de Extensión</div>
@@ -26,6 +26,6 @@
     </mat-card-content>
   </mat-card>
 
-  <app-iniciar-sesion fxFlex.gt-sm="25%"></app-iniciar-sesion>
+  <app-iniciar-sesion fxFlex.sm="40%" fxFlex.md="30%" fxFlex.gt-md="380px" [hidden]="mediaScreenService.screen_is_xs | async"></app-iniciar-sesion>
 
 </div>
