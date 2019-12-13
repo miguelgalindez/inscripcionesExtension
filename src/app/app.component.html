@@ -24,7 +24,7 @@
             </button>
             <span class="mat-body-strong">Recuperar contraseña</span>
           </div>
-          <button [hidden]="(mediaScreenService.screen_is_gt_sm | async) || routingService.currentRouteIsIniciarSesion()"
+          <button [hidden]="routingService.currentRouteIsIniciarSesion() || ((mediaScreenService.screen_is_sm | async) && routingService.currentRouteIsIndex()) || (mediaScreenService.screen_is_gt_sm | async)"
                   [routerLink]="['iniciarSesion']"
                   mat-raised-button color="accent">Ingresar</button>
         </mat-toolbar-row>

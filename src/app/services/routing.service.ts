@@ -11,6 +11,10 @@ export class RoutingService {
     return this.router.url;
   }
 
+  currentRouteIsIndex(): boolean {
+    return this.currentRoute() === '/';
+  }
+
   currentRouteIsIniciarSesion(): boolean {
     return this.currentRoute().startsWith('/iniciarSesion');
   }
