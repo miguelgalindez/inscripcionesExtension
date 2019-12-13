@@ -1,9 +1,9 @@
-import { MediaScreenService } from './../../services/media-screen.service';
+import { RoutingService } from './../services/routing.service';
+import { MediaScreenService } from './../services/media-screen.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
-import { unsupported } from '@angular/compiler/src/render3/view/util';
 
 const componentUrl = '/iniciarSesion';
 
@@ -16,10 +16,7 @@ export class IniciarSesionComponent implements OnInit, OnDestroy {
   private unSubscribe: Subject<void>;
   screenSize: string;
 
-  constructor(
-    private router: Router,
-    public mediaScreenService: MediaScreenService
-  ) {}
+  constructor(public mediaScreenService: MediaScreenService, private routingService: RoutingService) {}
 
   ngOnInit() {
     this.unSubscribe = new Subject<void>();
@@ -31,7 +28,7 @@ export class IniciarSesionComponent implements OnInit, OnDestroy {
   }
 
   getCardClass(): string {
-    if (this.screenSize && this.router.url === componentUrl) {
+    if (this.screenSize && this.routingService.currentRouteIsIniciarSesion()) {
       if (this.screenSize === 'xs') {
         return 'card-size-xs';
       } else {

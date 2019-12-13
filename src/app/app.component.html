@@ -1,3 +1,40 @@
-<div class="material-theme">
-  <router-outlet></router-outlet>
+<div class="background material-theme">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(mediaScreenService.screen_is_xs | async) ? 'dialog' : 'navigation'"
+        [mode]="!(mediaScreenService.screen_is_gt_sm | async) || !routingService.currentRouteIsHome() ? 'over' : 'side'"
+        [opened]="(mediaScreenService.screen_is_gt_sm | async) && routingService.currentRouteIsHome()">
+      <mat-toolbar color="primary">Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item href="#">Link 1</a>
+        <a mat-list-item href="#">Link 2</a>
+        <a mat-list-item (click)="drawer.toggle()">Cerrar</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" [hidden]="(mediaScreenService.screen_is_gt_sm | async)">
+        <mat-toolbar-row fxLayoutAlign="space-between center">
+          <div>
+            <button
+              type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span class="mat-body-strong">Recuperar contraseña</span>
+          </div>
+          <button [hidden]="(mediaScreenService.screen_is_gt_sm | async) || routingService.currentRouteIsIniciarSesion()"
+                  [routerLink]="['iniciarSesion']"
+                  mat-raised-button color="accent">Ingresar</button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <app-header [hidden]="!(mediaScreenService.screen_is_gt_sm | async)" ></app-header>
+
+      <!--Content-->
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

@@ -1,5 +1,4 @@
-.toolbar{
-  background:rgba(0,0,0,0.3);
+mat-toolbar {
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -34,21 +33,4 @@
   max-width: 230px;
   line-height: 20px;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
-}
-
-@media(max-width: 800px){
-  .titulo {
-    font-size: 14px;
-    width: 190px;
-  }
-}
-
-@media(max-width: 750px){
-  .titulo {
-    display: none !important;
-  }
-
-  .divider{
-    display: none !important;
-  }
 }

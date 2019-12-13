@@ -10,6 +10,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 export class MediaScreenService {
   screenSize: Observable<string>;
   screen_is_xs: Observable<boolean>;
+  screen_is_gt_sm: Observable<boolean>;
 
   constructor(mediaObserver: MediaObserver) {
     this.screenSize = mediaObserver
@@ -18,6 +19,12 @@ export class MediaScreenService {
 
     this.screen_is_xs = this.screenSize.pipe(
       map((size: string) => size === 'xs'),
+      publishReplay(1),
+      refCount()
+    );
+
+    this.screen_is_gt_sm = this.screenSize.pipe(
+      map((size: string) => size !== 'xs' && size !== 'sm'),
       publishReplay(1),
       refCount()
     );

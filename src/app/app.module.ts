@@ -1,16 +1,16 @@
+import { ToolbarLinkComponent } from './toolbar-link/toolbar-link.component';
+import { HeaderComponent } from './header/header.component';
+import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
+import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { IndexComponent } from './index/index.component';
 import { MaterialModule } from './material/material.module';
 import { HomeModule } from './home/home.module';
-import {
-  PublicModule,
-  routes as publicModuleRoutes
-} from './public/public.module';
-import { PublicComponent } from './public/public.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -22,27 +22,37 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', component: IndexComponent },
+  { path: 'iniciarSesion', component: IniciarSesionComponent },
+  { path: 'crearCuenta', component: CrearCuentaComponent },
+  { path: 'recuperarContrasena', component: RecuperarContrasenaComponent },
   { path: 'home', component: MainNavComponent },
-  { path: '', component: PublicComponent, children: publicModuleRoutes },
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, MainNavComponent],
+  declarations: [
+    AppComponent,
+    MainNavComponent,
+    IndexComponent,
+    IniciarSesionComponent,
+    CrearCuentaComponent,
+    RecuperarContrasenaComponent,
+    HeaderComponent,
+    ToolbarLinkComponent
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
-    PublicModule,
-    HomeModule,
     MaterialModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
